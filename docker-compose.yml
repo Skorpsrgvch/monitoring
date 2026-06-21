@@ -69,12 +69,16 @@ services:
   cadvisor:
     image: gcr.io/cadvisor/cadvisor:v0.47.2
     container_name: cadvisor
+    privileged: true
+    devices:
+      - /dev/kmsg
     volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
       - /:/rootfs:ro
       - /var/run:/var/run:ro
       - /sys:/sys:ro
-      - /var/lib/docker/:/var/lib/docker:ro
-      - /dev/disk/:/dev/disk:ro
+      - /var/lib/docker:/var/lib/docker:ro
+      - /run/containerd:/run/containerd:ro
       - /etc/machine-id:/etc/machine-id:ro
     ports:
       - "8080:8080"
