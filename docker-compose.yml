@@ -74,10 +74,6 @@ services:
       - /dev/kmsg
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - /:/rootfs:ro
-      - /var/run:/var/run:ro
-      - /sys:/sys:ro
-      - /etc/machine-id:/etc/machine-id:ro
     ports:
       - "8080:8080"
     restart: unless-stopped
@@ -86,7 +82,6 @@ services:
     command:
       - '--docker_only=true'
       - '--store_container_labels=true'
-      - '--disable_root_cgroup_stats=true'
 
   blackbox-exporter:
     image: prom/blackbox-exporter:v0.24.0
