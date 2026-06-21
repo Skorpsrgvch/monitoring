@@ -85,6 +85,8 @@ services:
     restart: unless-stopped
     networks:
       - monitoring
+    command:
+      - '--store_container_labels=true'
 
   blackbox-exporter:
     image: prom/blackbox-exporter:v0.24.0
