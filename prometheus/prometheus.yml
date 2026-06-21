@@ -30,6 +30,12 @@ scrape_configs:
       - source_labels: [id]
         target_label: name
         replacement: '$1'
+        
+  - job_name: 'node-exporter'
+    static_configs:
+      - targets: ['node-exporter:9100']
+        labels:
+          service: 'node-exporter'
 
   - job_name: 'grafana'
     static_configs:
