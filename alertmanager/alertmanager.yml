@@ -26,21 +26,21 @@ route:
 receivers:
   - name: 'default-receiver'
     email_configs:
-      - to: 'admin@yourdomain.com'
+      - to: 'dimaizotov67@yandex.ru'
         send_resolved: true
         headers:
           Subject: '[{{ .Status | toUpper }}] Alert: {{ .GroupLabels.alertname }}'
 
   - name: 'critical-alerts'
     email_configs:
-      - to: 'admin@yourdomain.com'
+      - to: 'dimaizotov67@yandex.ru'
         send_resolved: true
         headers:
           Subject: '[🔴 CRITICAL] {{ .GroupLabels.alertname }}'
 
   - name: 'warning-alerts'
     email_configs:
-      - to: 'admin@yourdomain.com'
+      - to: 'dimaizotov67@yandex.ru'
         send_resolved: true
         headers:
           Subject: '[⚠️ WARNING] {{ .GroupLabels.alertname }}'
